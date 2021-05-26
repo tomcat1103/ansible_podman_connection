@@ -36,7 +36,7 @@ ansible -i hosts all -m ping
       become: yes
       tasks:
         - name: install wget
-            dnf:
+          dnf:
             name: wget
     ```
 
