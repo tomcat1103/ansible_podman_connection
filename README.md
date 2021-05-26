@@ -8,7 +8,7 @@ podman run -it --rm --name test_container_1 ubi8/ubi /bin/bash
 
 ## ping
 
-- inventory
+- inventory - hosts
 
     ```
     test_container_1 ansible_connection=podman
@@ -20,9 +20,23 @@ podman run -it --rm --name test_container_1 ubi8/ubi /bin/bash
 ansible -i hosts all -m ping 
 ```
 
+## in different with inventory name and container name
+
+- inventory - hosts
+
+    ```
+    test1 ansible_host=test_container_1 ansible_connection=podman
+    ```
+
+### run
+
+```sh
+ansible -i hosts all -m ping 
+```
+
 ## become
 
-- inventory
+- inventory - hosts
 
     ```
     test_container_1 ansible_connection=podman ansible_become_method=su
